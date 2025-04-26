@@ -1,5 +1,0 @@
-tenancy_ocid        = "your_tenancy_ocid_here"
-user_ocid           = "your_user_ocid_here"
-region              = "your_region_ocid_here"
-compartment_ocid    = "your_compartment_ocid_here"
-ubuntu_image_ocid  = "your_ubuntu_image_ocid_here"
