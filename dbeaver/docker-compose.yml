@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:latest
+    container_name: cloudbeaver
+    ports:
+      - "8978:8978" # Porta padrão de acesso
+    environment:
+      - CB_SERVER_NAME=CloudBeaver Community
+    networks:
+      - bridge # Coloque sua rede aqui se quiser conectar com seu banco MySQL
+    restart: unless-stopped
+
+networks:
+  bridge:
+#    external: true
