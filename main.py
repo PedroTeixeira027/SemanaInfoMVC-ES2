@@ -1,6 +1,6 @@
 # main.py
 
-from view import InscricaoView
+from view.view import InscricaoView
 
 def main():
     """

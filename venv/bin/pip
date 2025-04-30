@@ -1,4 +1,4 @@
-#!/home/pedro-vargas/Projetinho/SemanaInfoMVC-ES2/venv/bin/python3
+#!/home/pedro-vargas/SemanaInfoMVC-ES2/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
