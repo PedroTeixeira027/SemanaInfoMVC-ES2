@@ -3,6 +3,9 @@
 import sqlite3
 import random
 import string
+import redis
+
+r = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
 
 class Inscricao:
     """
@@ -12,6 +15,7 @@ class Inscricao:
     - Abstração: simplifica o conceito de uma inscrição.
     - Encapsulamento: dados e comportamento juntos.
     """
+
 
     def __init__(self, nome, data_nascimento, escolaridade, email, telefone, chave_pix=None, pagamento='Pendente'):
         self.nome = nome

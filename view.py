@@ -1,6 +1,11 @@
 # view.py
 
 from controller import InscricaoController
+from model import Inscricao
+from datetime import datetime
+import json
+from model import r
+import os
 
 class InscricaoView:
     """
@@ -19,12 +24,14 @@ class InscricaoView:
         Exibe o menu principal do sistema.
         """
         while True:
-            print("\n=== Semana da Informática ===")
+            print("\n===","\U0001F525","Semana da Informática","\U0001F525","===\n")
             print("1. Fazer Inscrição")
             print("2. Listar Inscrições")
             print("3. Confirmar Pagamento")
-            print("4. Sair")
+            print("4. Acessar o Chat")
+            print("0. Sair")
             escolha = input("Escolha uma opção: ")
+            os.system('cls' if os.name == 'nt' else 'clear')
 
             if escolha == '1':
                 self.fazer_inscricao()
@@ -33,7 +40,8 @@ class InscricaoView:
             elif escolha == '3':
                 self.confirmar_pagamento()
             elif escolha == '4':
-                print("\nObrigado por se inscrever na Semana da Informática! Abraços! Ass: ItiBit")
+                self.chat()
+            elif escolha == '0':
                 break
             else:
                 print("Opção inválida. Tente novamente.")
@@ -54,6 +62,8 @@ class InscricaoView:
         print(f"\nInscrição realizada com sucesso!")
         print(f"Valor da taxa de inscrição: R$15,00")
         print(f"Chave Pix para pagamento: {inscricao.chave_pix}")
+        print("\nObrigado por se inscrever na Semana da Informática! Abraços! Ass: ItiBit")
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     def listar_inscricoes(self):
         """
@@ -75,6 +85,8 @@ class InscricaoView:
             print(f"Telefone: {inscricao[5]}")
             print(f"Chave Pix: {inscricao[6]}")
             print(f"Status de Pagamento: {inscricao[7]}")
+        op = input("\nAperte qualquer tecla para sair...")
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     def confirmar_pagamento(self):
         """
@@ -85,5 +97,41 @@ class InscricaoView:
             id_inscricao = int(input("Digite o ID da inscrição para confirmar pagamento: "))
             self.controller.confirmar_pagamento(id_inscricao)
             print("Pagamento confirmado com sucesso!")
+
         except ValueError:
             print("ID inválido. Por favor, digite um número inteiro.")
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+
+    def chat(self):
+        print("\n","\U0001F525","CHAT","\U0001F525","\n")
+
+        print("\n=== Mensagens anteriores ===\n")
+        mensagens = r.lrange("chat:mensagens", 0, -1)
+        if mensagens:
+            for m in mensagens:
+                msg = json.loads(m)
+                print(f"[{msg['timestamp']}] {msg['nome']}: {msg['mensagem']}")
+        else:
+            print("Nenhuma mensagem ainda.")
+        
+        nome = input("\nDigite seu nome (como foi cadastrado): ")
+        print("\nDigite sua mensagem. Escreva 'sair' para encerrar o chat.\n")
+
+        while True:
+            mensagem = input("> ")
+
+            if mensagem.lower() == 'sair':
+                print("\nEncerrando chat...")
+                os.system('cls' if os.name == 'nt' else 'clear')
+                break
+
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            dado = {
+                "nome": nome,
+                "mensagem": mensagem,
+                "timestamp": timestamp
+            }
+
+            r.rpush("chat:mensagens", json.dumps(dado))
+
