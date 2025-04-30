@@ -4,9 +4,9 @@ Este repositório contém a aplicação desenvolvida durante o projeto da discip
 
 ### 👨‍💻 Responsável pela Infraestrutura
 
-| Nome         | Função                                                             |
-|--------------|--------------------------------------------------------------------|
-| Kawan Silva  | Provisionamento da infraestrutura, configuração de Redis e MySQL  |
+| Nome         | Função                                                                          |
+|--------------|---------------------------------------------------------------------------------|
+| Kawan Silva  | Provisionamento da infraestrutura, Instalação e configuração do Linux e Docker  |
 
 
 
