@@ -48,13 +48,6 @@ A infraestrutura criada com Terraform na OCI inclui:
 - Porta padrão: `6379`
 
 
-📂 Estrutura do Projeto
-
-├── oci-terraform/  <br>               
-  │   ├── main.tf <br> 
-  │   ├── terraform.tfvars <br> 
-  │   ├── variables.tf <br> 
-
 <br>
 
   Você pode usar um arquivo terraform.tfvars para definir valores sensíveis, como:
