@@ -63,3 +63,11 @@ A infraestrutura criada com Terraform na OCI inclui:
 `compartment_ocid = "ocid1.compartment.oc1..."` <br> 
 `region = "sa-saopaulo-1"` <br> 
 ... <br>
+
+## :memo: License
+  
+ This project is under [MIT License](./LICENSE).
+
+<p align='center'>
+  Do you like my open source projects? <a href='https://stars.github.com/nominate/'>Nominate us to Github Stars ⭐</a>
+</p>
