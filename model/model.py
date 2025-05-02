@@ -1,11 +1,14 @@
 # model.py
 
-import sqlite3
+import mysql.connector 
 import random
 import string
 import redis
+import os
+
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
+
 
 class Inscricao:
     """
@@ -35,63 +38,50 @@ class Inscricao:
         return chave
 
 class BancoDeDados:
-    """
-    Classe que gerencia a conexão com o banco de dados.
-    
-    Princípios aplicados:
-    - Modularidade: banco separado das outras partes do sistema.
-    """
-
-    def __init__(self, nome_banco='semana_informatica.db'):
-        self.conexao = sqlite3.connect(nome_banco)
+    def __init__(self, host='localhost', user='', password='', database=''):
+        self.conexao = mysql.connector.connect(
+            host=host,
+            user=user,
+            password=password,
+            database=database
+        )
         self.criar_tabela()
 
     def criar_tabela(self):
-        """
-        Cria a tabela de inscrições, se ainda não existir.
-        """
         cursor = self.conexao.cursor()
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS inscricoes (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nome TEXT NOT NULL,
-                data_nascimento TEXT NOT NULL,
-                escolaridade TEXT NOT NULL,
-                email TEXT NOT NULL,
-                telefone TEXT NOT NULL,
-                chave_pix TEXT NOT NULL,
-                pagamento TEXT NOT NULL
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                nome VARCHAR(100) NOT NULL,
+                data_nascimento VARCHAR(100) NOT NULL,
+                escolaridade VARCHAR(100) NOT NULL,
+                email VARCHAR(100) NOT NULL,
+                telefone VARCHAR(100) NOT NULL,
+                chave_pix VARCHAR(255) NOT NULL,
+                pagamento VARCHAR(100) NOT NULL
             )
         ''')
         self.conexao.commit()
 
     def adicionar_inscricao(self, inscricao):
-        """
-        Adiciona uma nova inscrição no banco de dados.
-        """
         cursor = self.conexao.cursor()
         cursor.execute('''
             INSERT INTO inscricoes (nome, data_nascimento, escolaridade, email, telefone, chave_pix, pagamento)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
         ''', (inscricao.nome, inscricao.data_nascimento, inscricao.escolaridade, inscricao.email, inscricao.telefone, inscricao.chave_pix, inscricao.pagamento))
         self.conexao.commit()
 
     def listar_inscricoes(self):
-        """
-        Lista todas as inscrições cadastradas.
-        """
         cursor = self.conexao.cursor()
         cursor.execute('SELECT * FROM inscricoes')
         return cursor.fetchall()
 
     def atualizar_pagamento(self, id_inscricao):
-        """
-        Atualiza o status de pagamento para 'Pago'.
-        """
         cursor = self.conexao.cursor()
         cursor.execute('''
             UPDATE inscricoes
             SET pagamento = 'Pago'
-            WHERE id = ?
+            WHERE id = %s
         ''', (id_inscricao,))
         self.conexao.commit()
+

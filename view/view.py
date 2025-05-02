@@ -6,6 +6,7 @@ from datetime import datetime
 import json
 from model.model import r
 import os
+import time
 
 class InscricaoView:
     """
@@ -63,6 +64,7 @@ class InscricaoView:
         print(f"Valor da taxa de inscrição: R$15,00")
         print(f"Chave Pix para pagamento: {inscricao.chave_pix}")
         print("\nObrigado por se inscrever na Semana da Informática! Abraços! Ass: ItiBit")
+        time.sleep(10)
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def listar_inscricoes(self):
@@ -79,7 +81,7 @@ class InscricaoView:
         for inscricao in inscricoes:
             print(f"\nID: {inscricao[0]}")
             print(f"Nome: {inscricao[1]}")
-            print(f"Data de Nascimento: {inscricao[2]}")
+            print(f"Data de Nascimento (dd/mm/aaaa): {inscricao[2]}")
             print(f"Escolaridade: {inscricao[3]}")
             print(f"Email: {inscricao[4]}")
             print(f"Telefone: {inscricao[5]}")
