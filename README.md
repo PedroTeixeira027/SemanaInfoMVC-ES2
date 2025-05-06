@@ -1,6 +1,6 @@
 # 🧠 Desenvolvimento da Aplicação - SemanaInfoMVC-ES2
 
-A aplicação foi construída seguindo o padrão arquitetural MVC (Model-View-Controller), promovendo a separação de interesses, modularidade e organização do código.
+Este repositório contém a aplicação desenvolvida durante o projeto da disciplina Engenharia de Software 2 (ES2). A aplicação foi construída seguindo o padrão arquitetural MVC (Model-View-Controller), promovendo a separação de interesses, modularidade e organização do código.
 
 ### 👨‍💻 Responsáveis pelo Desenvolvimento
 
@@ -67,7 +67,7 @@ A aplicação foi construída seguindo o padrão arquitetural MVC (Model-View-Co
 
 # ☁️ Infraestrutura da Aplicação - SemanaInfoMVC-ES2
 
-Este repositório contém a aplicação desenvolvida durante o projeto da disciplina Engenharia de Software 2 (ES2). Esta parte do projeto é responsável por provisionar a **infraestrutura** na Oracle Cloud Infrastructure (OCI), utilizando **Terraform** e **Docker**.
+Esta parte do projeto é responsável por provisionar a **infraestrutura** na Oracle Cloud Infrastructure (OCI), utilizando **Terraform** e **Docker**.
 
 ### 👨‍💻 Responsável pela Infraestrutura
 
