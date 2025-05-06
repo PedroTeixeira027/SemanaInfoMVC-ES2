@@ -101,8 +101,8 @@ A infraestrutura criada com Terraform na OCI inclui:
 
 ### 📦 Serviços Configurados
 
-### ✅ MySQL Server (via Docker)
-- Instalado no docker via DockerHub
+### ✅ MySQL Server 
+- Instalado na VM
 - Porta padrão: `3306`
 
 ### ✅ Redis (via Docker)
