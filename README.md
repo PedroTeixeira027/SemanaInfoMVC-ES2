@@ -9,6 +9,11 @@ Este repositório contém a aplicação desenvolvida durante o projeto da discip
 | Pedro T Vargas |  Desenvolvimento, configuração do Mysql e Redis e criação da README             |
 | Pedro Teixeira |  Desenvolvimento, configuração do Mysql e criação do Repostitório
 
+### 👨‍💻 Responsável pela Infraestrutura
+
+| Nome         | Função                                                                          |
+|--------------|---------------------------------------------------------------------------------|
+| Kawan Silva  | Provisionamento da infraestrutura, Instalação e configuração do Linux, Docker e o MYSQL  |
 
 ---
 
@@ -69,14 +74,6 @@ Este repositório contém a aplicação desenvolvida durante o projeto da discip
 
 Esta parte do projeto é responsável por provisionar a **infraestrutura** na Oracle Cloud Infrastructure (OCI), utilizando **Terraform** e **Docker**.
 
-### 👨‍💻 Responsável pela Infraestrutura
-
-| Nome         | Função                                                                          |
-|--------------|---------------------------------------------------------------------------------|
-| Kawan Silva  | Provisionamento da infraestrutura, Instalação e configuração do Linux e Docker  |
-
-
----
 
 ### 🔧 Tecnologias Utilizadas
 
@@ -121,16 +118,8 @@ A infraestrutura criada com Terraform na OCI inclui:
 
 ---
 
-<br>
 
-  Você pode usar um arquivo terraform.tfvars para definir valores sensíveis, como:
-
-`tenancy_ocid = "ocid1.tenancy.oc1..."` <br>
-`compartment_ocid = "ocid1.compartment.oc1..."` <br> 
-`region = "sa-saopaulo-1"` <br> 
-... <br>
-
-## :memo: License
+#### :memo: License
   
  This project is under [MIT License](./LICENSE).
 
