@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Configurações
-USUARIO="semanainfouser"
-SENHA="TILk_21h#ydaD"
-BANCO="semanainfo"
+USUARIO="seu_usuario_aqui"
+SENHA="sua_senha_aqui"
+BANCO="seu_banco_aqui"
 DESTINO="/BKP-MYSQL" 
 
 # Data atual para nome do arquivo
