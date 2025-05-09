@@ -13,7 +13,7 @@ Este repositório contém a aplicação desenvolvida durante o projeto da discip
 
 | Nome         | Função                                                                          |
 |--------------|---------------------------------------------------------------------------------|
-| Kawan Silva  | Provisionamento da infraestrutura, Instalação e configuração do Linux, Docker e o MYSQL  |
+| Kawan Silva  | Provisionamento da infraestrutura, Instalação e configuração do Linux, Zabbix, Docker e o MYSQL  |
 
 ---
 
@@ -115,6 +115,10 @@ A infraestrutura criada com Terraform na OCI inclui:
 - Instalado no docker via Docker Compose.
 - Porta padrão: `8978`
 - Utilizado para facilitar a visualização dos dados inseridos no cadastro.
+
+### ✅ Zabbix Server 
+- Instalado na VM
+- Porta padrão: `80 e 10051`
 
 ---
 
