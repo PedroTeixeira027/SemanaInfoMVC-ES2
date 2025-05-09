@@ -187,3 +187,48 @@ resource "oci_core_volume_attachment" "volume_attachment" {
   volume_id      = oci_core_volume.additional_disk.id
   attachment_type = "paravirtualized"
 }
+
+## Zabbix Server
+
+resource "oci_core_instance" "zabbix_vm" {
+  compartment_id      = var.compartment_ocid
+  availability_domain = tolist(data.oci_identity_availability_domains.ads.availability_domains)[0].name
+  shape               = "VM.Standard.E5.Flex"
+  display_name        = "Zabbix Server VM"
+
+  create_vnic_details {
+    subnet_id          = oci_core_subnet.public_subnet.id
+    assign_public_ip   = true
+    display_name       = "Terraform Zabbix VM VNIC"
+    hostname_label     = "zabbixvm"
+    nsg_ids            = [oci_core_network_security_group.nsg.id]
+  }
+
+  source_details {
+    source_type = "image"
+    source_id   = var.ubuntu_image_ocid
+  }
+
+  metadata = {
+    ssh_authorized_keys = <<EOF
+your_key_here
+  }
+
+  shape_config {
+    ocpus = 1
+    memory_in_gbs = 4
+  }
+}
+
+resource "oci_core_volume" "zabbix_disk" {
+  compartment_id      = var.compartment_ocid
+  availability_domain = tolist(data.oci_identity_availability_domains.ads.availability_domains)[0].name
+  display_name        = "Zabbix Disk"
+  size_in_gbs         = 50
+}
+
+resource "oci_core_volume_attachment" "zabbix_volume_attachment" {
+  instance_id    = oci_core_instance.zabbix_vm.id
+  volume_id      = oci_core_volume.zabbix_disk.id
+  attachment_type = "paravirtualized"
+}
