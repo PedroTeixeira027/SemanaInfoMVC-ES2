@@ -104,8 +104,8 @@ A infraestrutura criada com Terraform na OCI inclui:
 - Instalado na VM
 - Porta padrão: `3306`
 
-### ✅ Redis (via Docker)
-- Instalado no docker via Docker Compose.
+### ✅ Redis 
+- Instalado na VM
 - Porta padrão: `6379`
 
 ### ✅ Redisinsight (via Docker)
