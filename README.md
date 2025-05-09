@@ -118,10 +118,9 @@ A infraestrutura criada com Terraform na OCI inclui:
 - Porta padrão: `8978`
 - Utilizado para facilitar a visualização dos dados inseridos no cadastro.
 
-### ✅ Zabbix Server 
-- Instalado na VM
-- Porta padrão: `80 e 10051`
-
+### ✅ UptimeKuma
+- Instalado no Docker
+- Porta padrão: `3001`
 ---
 
 
