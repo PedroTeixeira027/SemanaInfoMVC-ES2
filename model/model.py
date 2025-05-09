@@ -7,7 +7,14 @@ import redis
 import os
 
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
+r = redis.StrictRedis(
+    host='localhost',
+    port=6379,
+    db=0,
+    username='semanainfouser',
+    password='qSLxPOm7Dkd9Nw4',
+    decode_responses=True
+)
 
 
 class Inscricao:
