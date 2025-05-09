@@ -2,6 +2,8 @@
 
 Este repositório contém a aplicação desenvolvida durante o projeto da disciplina Engenharia de Software 2 (ES2). A aplicação foi construída seguindo o padrão arquitetural MVC (Model-View-Controller), promovendo a separação de interesses, modularidade e organização do código.
 
+A aplicação foi desenvolvida pensando nas Tecnologias atuais, como Cloud Computing, IaC, entre outros assuntos.
+
 ### 👨‍💻 Responsáveis pelo Desenvolvimento
 
 | Nome           | Função                                                                          |
