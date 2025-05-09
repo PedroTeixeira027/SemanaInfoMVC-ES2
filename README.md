@@ -13,7 +13,7 @@ Este repositório contém a aplicação desenvolvida durante o projeto da discip
 
 | Nome         | Função                                                                          |
 |--------------|---------------------------------------------------------------------------------|
-| Kawan Silva  | Provisionamento da infraestrutura, Instalação e configuração do Linux, Docker e o MYSQL  |
+| Kawan Silva  | Provisionamento da infraestrutura, Instalação e configuração do Linux, Zabbix, Docker e o MYSQL  |
 
 ---
 
